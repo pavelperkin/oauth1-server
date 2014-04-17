@@ -11,8 +11,8 @@ class RequestToken < OauthToken
   end
 
   def exchange!
-    return false unless authorized?
-    return false unless oauth10? || verifier==provided_oauth_verifier
+    # return false unless authorized?
+    # return false unless oauth10? || verifier==provided_oauth_verifier
 
     RequestToken.transaction do
       access_token = AccessToken.create(:user => user, :client_application => client_application)
